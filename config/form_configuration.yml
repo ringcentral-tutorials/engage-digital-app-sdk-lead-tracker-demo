@@ -1,0 +1,38 @@
+entities:
+  university_of_california:
+    channel_ids:
+      - 'channel_id_1'
+      - 'channel_id_2'
+      - '4f97fbea7aa58d073900344f'
+      - '5ca3290c7a8bebff38ebb7f7'
+    config:
+      - name: "Campus"
+        type: "select"
+        options:
+          - "UC Irvine"
+          - "UC Santa Barbara"
+          - "UC Davis"
+          - "UC Berkeley"
+      - name: "Program of Interest"
+        type: "select"
+        options:
+          - "Bachelor's of Science"
+          - "Masters in Information Systems"
+          - "Masters in Finance"
+          - "Masters in Accounting"
+      - name: "Notes"
+        type: "textarea"
+
+  claremont_university:
+    channel_ids:
+      - 'channel_id_3'
+      - 'channel_id_4'
+    config:
+      - name: "Where did you hear about us"
+        type: "select"
+        options:
+          - "Informational Session"
+          - "Internet"
+          - "Referral"
+      - name: "Address"
+        type: "input"

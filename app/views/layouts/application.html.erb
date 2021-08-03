@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lead form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'flash_message', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="min-h-screen flex">
+      <div class="w-full">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

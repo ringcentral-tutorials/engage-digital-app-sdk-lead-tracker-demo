@@ -1,0 +1,68 @@
+<% firstname = @lead.firstname.presence || @firstname %>
+<% lastname = @lead.lastname.presence || @lastname %>
+<% email = @lead.email.presence || @email %>
+<% phone_number = @lead.phone_number.presence || @phone_number %>
+
+<%= render 'flash' %>
+
+<h2 class="mb-6 text-3xl font-extrabold text-gray-800">Lead form</h2>
+
+<%= form_with(model: @lead, url: leads_path) do |form| %>
+  <div class="flex flex-row space-x-8 mb-4">
+    <div class="field flex-grow">
+      <%= form.label :firstname, class: label_classes %>
+      <%= form.text_field :firstname, value: firstname, class: input_classes %>
+    </div>
+
+    <div class="field flex-grow">
+      <%= form.label :lastname, class: label_classes %>
+      <%= form.text_field :lastname, value: lastname, class: input_classes %>
+    </div>
+  </div>
+
+  <div class="flex flex-row space-x-8 mb-4">
+    <div class="field flex-grow">
+      <%= form.label :email, class: label_classes %>
+      <%= form.text_field :email, value: email, class: input_classes %>
+    </div>
+
+    <div class="field flex-grow">
+      <%= form.label :phone_number, class: label_classes %>
+      <%= form.text_field :phone_number, value: phone_number, class: input_classes %>
+    </div>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :question, class: label_classes %>
+    <%= form.text_area :question, value: @lead.question, class: text_area_classes %>
+  </div>
+
+  <%= render_form_elements_for form, @entity_name, @lead %>
+
+  <div class="field mb-3 space-x-8 flex flex-row">
+    <div>
+      <%= form.label :lead_type, 'Qualified lead', value: 'qualified_lead', class: label_classes %>
+      <%= form.radio_button :lead_type, 'qualified_lead' %>
+    </div>
+    <div>
+      <%= form.label :lead_type, 'Email only', value: 'email_only', class: label_classes %>
+      <%= form.radio_button :lead_type, 'email_only' %>
+    </div>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :comment_summary, 'Comment / Summary', class: label_classes %>
+    <%= form.text_area :comment_summary, value: @lead.comment_summary, class: text_area_classes %>
+  </div>
+
+  <%= form.hidden_field :channel_id, value: @channel_id %>
+  <%= form.hidden_field :identity_group_id, value: @lead.identity_group_id %>
+  <%= form.hidden_field :entity, value: @entity_name %>
+  <%= form.hidden_field :agent_id, value: @agent_id if @lead.new_record? %>
+  <%= form.hidden_field :thread_id, value: @thread_id if @lead.new_record? %>
+  <%= form.hidden_field :intervention_id, value: @intervention_id if @lead.new_record? %>
+
+  <div class="actions mt-4 flex justify-end">
+    <%= form.submit 'Save', class: 'relative w-20 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' %>
+  </div>
+<% end %>
