@@ -46,12 +46,12 @@ entities:
 ```
 
 Available types of element for the dynamic form are:
-| Name        | Type of field saved in DB | Comment |
-|-------------|---------------------------|---------|
-| `input`     | String                    | - |
-| `checkbox`  | Boolean                   | - |
+| Name        | Type of field saved in DB | Comment                                           |
+|-------------|---------------------------|---------------------------------------------------|
+| `input`     | String                    | -                                                 |
+| `checkbox`  | Boolean                   | -                                                 |
 | `select`    | String                    | Won't be displayed if the `options` list is empty |
-| `textarea`  | String                    | - |
+| `textarea`  | String                    | -                                                 |
 
 # Overview
 
@@ -63,19 +63,21 @@ Available types of element for the dynamic form are:
 
 ### Lead
 
-| Name               | Type     | Description  |
-|--------------------|----------|--------------|
-| id                 | Integer  | Unique identifier |
-| identity_group_id  | String   | Unique identifier for the identity group on Engage Digital  |
-| entity             | String   | Name of the entity (based on the configuration file)  |
-| firstname          | String   | -  |
-| lastname           | String   | -  |
-| email              | String   | -  |
-| phone_number       | String   | -  |
-| question           | String   | -  |
-| comment_summary    | String   | -  |
-| lead_type          | String   | Can be either `qualified_lead` or `email_only`  |
-| agent_id           | String   | ID of the agent creating the identity group  |
+| Name               | Type     | Description                                                                   |
+|--------------------|----------|-------------------------------------------------------------------------------|
+| id                 | Integer  | Unique identifier                                                             |
+| identity_group_id  | String   | Unique identifier for the identity group on Engage Digital                    |
+| entity             | String   | Name of the entity (based on the configuration file)                          |
+| firstname          | String   | -                                                                             |
+| lastname           | String   | -                                                                             |
+| email              | String   | -                                                                             |
+| phone_number       | String   | -                                                                             |
+| question           | String   | -                                                                             |
+| comment_summary    | String   | -                                                                             |
+| lead_type          | String   | Can be either `qualified_lead` or `email_only`                                |
+| agent_id           | String   | ID of the agent creating the identity group                                   |
 | intervention_id    | String   | ID of the intervention (if present) from which the identity group was created |
-| thread_id          | String   | ID of the thread from which the identity group was created  |
-| data               | Hash     | JSON representation of the dynamic data filled by the custom form  |
+| thread_id          | String   | ID of the thread from which the identity group was created                    |
+| data               | Hash     | JSON representation of the dynamic data filled by the custom form             |
+| created_at         | DateTime | Date of the record creation                                                   |
+| updated_at         | DateTime | Timestamp of the last update                                                  |
