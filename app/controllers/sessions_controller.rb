@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       render(text: params[:error], content_type: 'text/plain')
     else
       token = client.auth_code.get_token(params[:code], redirect_uri: callback_session_url(origin: params[:origin]))
-      response = token.get("https://#{ed_domain_name}.api.#{ed_hostname}/1.0/users/me") # TODO: Use env variable for url
+      response = token.get("https://#{ed_domain_name}.api.#{ed_hostname}/1.0/users/me")
       json = ActiveSupport::JSON.decode(response.body)
       session[:current_user_id] = json['id']
 
@@ -33,7 +33,6 @@ class SessionsController < ApplicationController
   private
 
   def client
-    # TODO: Use env variables here
     @client ||= OAuth2::Client.new(ed_app_sdk_client_id, ed_app_sdk_client_secret, site: "https://#{ed_domain_name}.#{ed_hostname}")
   end
 end
