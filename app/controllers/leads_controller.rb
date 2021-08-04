@@ -57,7 +57,7 @@ class LeadsController < ApplicationController
   def entity_name
     @entity_name ||= Rails.application.config.form_configuration[:entities].keys.find do |name|
       Rails.application.config.form_configuration.dig(:entities, name.to_sym, :channel_ids).include?(@channel_id)
-    end
+    end || 'N/A'
   end
 
   def lead_params
