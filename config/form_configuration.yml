@@ -1,7 +1,7 @@
 entities:
   university_of_california:
     channel_ids:
-      - 'channel_id_1'
+      - '609c2f4dca30db000bfb36f7'
     config:
       - name: "Campus"
         type: "select"
@@ -22,7 +22,7 @@ entities:
 
   claremont_university:
     channel_ids:
-      - 'channel_id_2'
+      - '60a77a810880e9000cac65ac'
     config:
       - name: "Where did you hear about us"
         type: "select"
