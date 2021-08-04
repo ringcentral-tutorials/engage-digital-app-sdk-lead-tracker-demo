@@ -18,9 +18,11 @@
 
 ### Introduction
 
-This project is a POC of lead management integration for Engage Digital. It relies on Engage Digital AppSDK to display for Agent a form for lead creation. The forms can be customized based on current channel where the interaction is taking place (see [Dynamic form configuration](#dynamic-form-configuration)).
+This project is a POC for lead management integration in Engage Digital. It relies on Engage Digital AppSDK to display a form for lead creation to agent handling interaction. The form can be customized based on the current channel where the interaction is taking place (see [Dynamic form configuration](#dynamic-form-configuration)).
 
-The data themselves are stored in the database of the externak server serving the forms. This is the application running on this server, it handles form generation, form storage and authentication with Engage Digital (only ED agent will be able to display the form).
+The data themselves are stored in a database of this application serving the forms to agent in ED. This is the application handles form generation, fetching default value for lead from ED API, lead generation storage and SSO authentication with Engage Digital (only ED agent will be able to display the form). 
+
+Engage Digital AppSDK application (to be setup in Engage Digital) provides the glue to interface this application to Engage Digital agent UI, provides proper data as parameter of this application and display form in ED UI as an iframe.
 
 ### Interaction with Engage Digital
 
