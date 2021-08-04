@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
+  host: <%= ENV.fetch('LEAD_TRACKER_DATABASE_HOST', 'localhost') %>
+  port: <%= ENV.fetch('LEAD_TRACKER_DATABASE_PORT', 5432) %>
   database: <%= ENV['LEAD_TRACKER_DATABASE_NAME'] %>
   username: <%= ENV['LEAD_TRACKER_DATABASE_USERNAME'] %>
   password: <%= ENV['LEAD_TRACKER_DATABASE_PASSWORD'] %>

@@ -2,10 +2,11 @@
 
 ## Environment variables
 
-
-
 | Name                            | Mandatory                                                       | Description                                                                                                                                                         |
 |---------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| DATABASE_URL                    | **YES**                                                         | Complete URL to connect to the postgresql database (:warning: takes precedence over all the `LEAD_TRACKER_DATABASE_*` variables if present)                         |
+| LEAD_TRACKER_DATABASE_HOST      | NO (:information_source: defaults to `localhost`)               | Host of the postgresql database                                                                                                                                     |
+| LEAD_TRACKER_DATABASE_PORT      | NO (:information_source: defaults to `5432`)                    | Port of the postgresql database                                                                                                                                     |
 | LEAD_TRACKER_DATABASE_NAME      | **YES**                                                         | Name of the postgresql database                                                                                                                                     |
 | LEAD_TRACKER_DATABASE_USERNAME  | **YES**                                                         | Username to connect to the postgresql database                                                                                                                      |
 | LEAD_TRACKER_DATABASE_PASSWORD  | **YES**                                                         | Password to connect to the postgresql database                                                                                                                      |
@@ -17,6 +18,10 @@
 | MAILGUN_API_KEY                 | NO                                                              | Mailgun API key (:warning: emails won't be sent if not specified)                                                                                                   |
 | MAILGUN_DOMAIN                  | NO                                                              | Mailgun domain (:warning: emails won't be sent if not specified)                                                                                                    |
 | MAILGUN_FROM                    | NO (:information_source: defaults to `from`)                    | Email address used to send emails. Emails will be sent by MAILGUN_FROM@MAILGUN_DOMAIN                                                                               |
+
+:warning: To connect to the database you need to either specify all the `LEAD_TRACKER_DATABASE_*` environment variables **OR** specify the `DATABASE_URL` environment variable.
+
+<br/>
 
 ## Dynamic form configuration
 
