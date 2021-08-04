@@ -18,7 +18,7 @@ class LeadsController < ApplicationController
     @lead.agent_email = session[:current_user_email]
     @lead.save
 
-    flash[:notice] = "Lead correctly #{action}"
+    flash[:notice] = "Lead has been #{action}"
     redirect_to url_for(controller: :leads, action: :show, identity_group_id: @lead.identity_group_id, params: { channel_id: params.dig(:lead, :channel_id) })
   end
 
