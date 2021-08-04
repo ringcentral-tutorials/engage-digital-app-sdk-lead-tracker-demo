@@ -1,0 +1,11 @@
+Hello,
+This is the lead contacted for <%= @entity %>:
+- First name: <%= @firstname %>
+- Last name: <%= @lastname %>
+- Phone number: <%= @phone_number %>
+- Question: <%= @question %>
+<% @data.each do |key, value| %>
+  - <%= key %>: <%= value %>
+<% end %>
+- Type of lead: <%= @lead_type %>
+- Comment/Summary: <%= @comment_summary %>

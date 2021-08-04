@@ -1,0 +1,16 @@
+<div>
+  <p>Hello,</p>
+  <p>This is the lead contacted for <%= @entity %>:</p>
+  <ul>
+    <li><strong>First name:</strong> <%= @firstname %></li>
+    <li><strong>Last name:</strong> <%= @lastname %></li>
+    <li><strong>Email:</strong> <%= @email %></li>
+    <li><strong>Phone number:</strong> <%= @phone_number %></li>
+    <li><strong>Question:</strong> <%= @question %></li>
+    <% @data.each do |key, value| %>
+      <li><strong><%= key %>:</strong> <%= value %></li>
+    <% end %>
+    <li><strong>Type of lead:</strong> <%= @lead_type %></li>
+    <li><strong>Comment/Summary:</strong> <%= @comment_summary %></li>
+  </ul>
+</div>

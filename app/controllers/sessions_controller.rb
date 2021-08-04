@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       response = token.get("https://#{ed_domain_name}.api.#{ed_hostname}/1.0/users/me")
       json = ActiveSupport::JSON.decode(response.body)
       session[:current_user_id] = json['id']
+      session[:current_user_email] = json['email']
 
       redirect_to(params[:origin].presence || root_url)
     end
@@ -21,12 +22,14 @@ class SessionsController < ApplicationController
   # GET /session/logout
   def logout
     session[:current_user_id] = nil
+    session[:current_user_email] = nil
     render(text: 'Logged out', content_type: 'text/plain')
   end
 
   # GET /session/new
   def new
     session[:current_user_id] = nil
+    session[:current_user_email] = nil
     redirect_to(client.auth_code.authorize_url(redirect_uri: callback_session_url(origin: params[:origin])))
   end
 

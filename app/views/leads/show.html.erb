@@ -7,7 +7,7 @@
 
 <h2 class="mb-6 text-3xl font-extrabold text-gray-800">Lead form</h2>
 
-<%= form_with(model: @lead, url: leads_path) do |form| %>
+<%= form_with(model: @lead, url: leads_path, class: 'px-1') do |form| %>
   <div class="flex flex-row space-x-8 mb-4">
     <div class="field flex-grow">
       <%= form.label :firstname, class: label_classes %>

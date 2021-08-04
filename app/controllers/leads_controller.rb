@@ -12,11 +12,13 @@ class LeadsController < ApplicationController
 
   # POST/PATCH /leads
   def save
+    action = @lead.new_record? ? 'created' : 'updated'
     @lead.assign_attributes(lead_params.except(:data))
     @lead.data.merge!(lead_params[:data] || {})
+    @lead.agent_email = session[:current_user_email]
     @lead.save
 
-    flash[:notice] = "Lead correctly #{@lead.new_record? ? 'created' : 'updated'}"
+    flash[:notice] = "Lead correctly #{action}"
     redirect_to url_for(controller: :leads, action: :show, identity_group_id: @lead.identity_group_id, params: { channel_id: params.dig(:lead, :channel_id) })
   end
 

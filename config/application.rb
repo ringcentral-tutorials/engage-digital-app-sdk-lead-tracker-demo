@@ -7,7 +7,7 @@ require "active_model/railtie"
 require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
+require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
@@ -38,6 +38,12 @@ module LeadTracker
     config.hosts << '648db20ab747.ngrok.io'
     config.action_dispatch.cookies_same_site_protection = :none
 
+    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.mailgun_settings = {
+      api_key: ENV['MAILGUN_API_KEY'],
+      domain: ENV['MAILGUN_DOMAIN'],
+    }
+
     def ed_domain_name
       ENV['ED_DOMAIN_NAME']
     end
@@ -56,6 +62,10 @@ module LeadTracker
 
     def ed_app_sdk_client_secret
       ENV['ED_APP_SDK_CLIENT_SECRET']
+    end
+
+    def mailgun_configured?
+      ENV.values_at('MAILGUN_API_KEY', 'MAILGUN_DOMAIN').all?(&:present?)
     end
   end
 end
