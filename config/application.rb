@@ -35,7 +35,6 @@ module LeadTracker
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.hosts << '648db20ab747.ngrok.io'
     config.action_dispatch.cookies_same_site_protection = :none
 
     config.action_mailer.delivery_method = :mailgun
